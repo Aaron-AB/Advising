@@ -1,0 +1,55 @@
+{
+    "level1Courses": [
+      {
+          "Course Code":"COMP 1600",
+          "Course Name":"Introduction to Computing Concepts",
+          "Prerequisites": "NONE",
+          "Credits": 3,
+          "Semester": 1
+      },
+      {
+        "Course Code":"COMP 1601",
+        "Course Name":"Computer Programming 1",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 1
+    },
+    {
+        "Course Code":"COMP 1602",
+        "Course Name":"Computer Programming 2",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 2
+    },
+    {
+        "Course Code":"COMP 1603",
+        "Course Name":"Computer Programming 3",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 2
+    },
+    {
+        "Course Code":"COMP 1604",
+        "Course Name":"Mathematics for Computing",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 2
+    },
+    {
+        "Course Code":"INFO 1600",
+        "Course Name":"Introduction to Information Technology Concepts",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 1
+    },
+    {
+        "Course Code":"INFO 1601",
+        "Course Name":"Introduction to WWW Programming",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 2
+    }
+    ]
+  }
+  
+

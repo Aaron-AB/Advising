@@ -1,0 +1,74 @@
+{
+  "courses": [
+    {
+      "Course Code": "COMP 2601",
+      "Semester": 1,
+      "Course Name": "Computer Architecture"
+    },
+    {
+      "Course Code": "COMP 2602",
+      "Semester": 1,
+      "Course Name": "Computer Networks"
+    },
+    {
+      "Course Code": "COMP 2603",
+      "Semester": 2,
+      "Course Name": "Object Oriented Programming I"
+    },
+    {
+      "Course Code": "COMP 2604",
+      "Semester": 2,
+      "Course Name": "Operating Systems"
+    },
+    {
+      "Course Code": "COMP 2605",
+      "Semester": 1,
+      "Course Name": "Enterprise Database Systems"
+    },
+    {
+      "Course Code": "COMP 2606",
+      "Semester": 2,
+      "Course Name": "Software Engineering I"
+    },
+    {
+      "Course Code": "COMP 2611",
+      "Semester": 1,
+      "Course Name": "Data Structures"
+    },
+    {
+      "Course Code": "INFO 2600",
+      "Semester": 2,
+      "Course Name": "Information Systems Development"
+    },
+    {
+      "Course Code": "INFO 2601",
+      "Semester": 1,
+      "Course Name": "Networking Technologies Fundamentals"
+    },
+    {
+      "Course Code": "INFO 2602",
+      "Semester": 2,
+      "Course Name": "Web Programming and Technologies I"
+    },
+    {
+      "Course Code": "INFO 2603",
+      "Semester": 1,
+      "Course Name": "Platform Technologies I"
+    },
+    {
+      "Course Code": "INFO 2604",
+      "Semester": 2,
+      "Course Name": "Information Systems Security"
+    },
+    {
+      "Course Code": "INFO 2605",
+      "Semester": 1,
+      "Course Name": "Professional Ethics and Law"
+    },
+    {
+      "Course Code": "MATH 2250",
+      "Semester": 1,
+      "Course Name": "Industrial Statistics"
+    }
+  ]
+}

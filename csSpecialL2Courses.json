@@ -1,0 +1,76 @@
+{
+    "csSpecialL2Courses": [
+      {
+        "Course Code": "COMP 2601",
+        "Semester": 1,
+        "Prerequisites": "COMP 1600",
+        "Credits": 3,
+        "Course Name": "Computer Architecture"
+      },
+      {
+        "Course Code": "COMP 2602",
+        "Semester": 1,
+        "Prerequisites": "COMP 1600",
+        "Credits": 3,
+        "Course Name": "Computer Networks"
+      },
+      {
+        "Course Code": "COMP 2603",
+        "Semester": 2,
+        "Prerequisites": "COMP 1603",
+        "Credits": 3,
+        "Course Name": "Object Oriented Programming I"
+      },
+      {
+        "Course Code": "COMP 2604",
+        "Semester": 2,
+        "Prerequisites": "COMP 1600",
+        "Credits": 3,
+        "Course Name": "Operating Systems"
+      },
+      {
+        "Course Code": "COMP 2605",
+        "Semester": 1,
+        "Prerequisites": "COMP 1602",
+        "Credits": 3,
+        "Course Name": "Enterprise Database Systems"
+      },
+      {
+        "Course Code": "COMP 2606",
+        "Semester": 2,
+        "Prerequisites": "COMP 1603",
+        "Credits": 3,
+        "Course Name": "Software Engineering I"
+      },
+      {
+        "Course Code": "COMP 2611",
+        "Semester": 1,
+        "Prerequisites": "COMP 1603",
+        "Credits": 3,
+        "Course Name": "Data Structures"
+      },
+      {
+        "Course Code": "INFO 2602",
+        "Semester": 2,
+        "Prerequisites": "INFO 1601",
+        "Credits": 3,
+        "Course Name": "Web Programming and Technologies I"
+      },
+      {
+        "Course Code": "INFO 2604",
+        "Semester": 2,
+        "Prerequisites": "COMP 1602",
+        "Credits": 3,
+        "Course Name": "Information Systems Security"
+      },
+      {
+        "Course Code": "MATH 2250",
+        "Semester": 1,
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Course Name": "Industrial Statistics"
+      }
+    ]
+  }
+  
+
