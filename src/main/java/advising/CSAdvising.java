@@ -9,7 +9,7 @@ public class CSAdvising implements AcademicAdvising {
     private ArrayList<Course> coreCourses; //for level 2 core courses 
     ////private ArrayList<Course> coursesOffered; // maybe consider if it is being offered, or assume that hte courses read into the arrays are updated based on what is offered. 
 
-    public CSAdvising(Student student, ArrayList<Course> coursesOffered){
+    public CSAdvising(Student student){//Not used:, ArrayList<Course> coursesOffered){
         this.student = student; 
         this.coreCourses = csSpecialCoursesL2();
         //this.coursesOffered = coursesOffered;// see declaration for note
@@ -34,7 +34,7 @@ public class CSAdvising implements AcademicAdvising {
     /**
      * Creates listed of 3-5 courses 
      */
-    public ArrayList<Course> getAdvisedListOfCourses(){
+    public String getAdvisedListOfCourses(){
         String currSem = student.getCurrentSemester(); 
         
         for (Course c: coreCourses){
@@ -43,7 +43,7 @@ public class CSAdvising implements AcademicAdvising {
                 }  
         }
         addLevel1Courses(); //any outstanding level 1 if max not reached 
-        return recommendedCourses;
+        return formattedRecommendations();
     } 
 
     /**
@@ -81,6 +81,14 @@ public class CSAdvising implements AcademicAdvising {
         if (student.getGPA() > gpaLowerLimit)
             return 5;
         return 3;
+    }
+
+    public String formattedRecommendations(){
+        String formattedList = " ";
+        for(Course c: recommendedCourses){
+            formattedList += c.toString();
+        }
+        return formattedList;
     }
  
     //To be replaced by a file level 2 courses offered for CS only

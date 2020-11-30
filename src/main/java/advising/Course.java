@@ -9,7 +9,7 @@ public class Course {
     private int credits;
     private String prerequisites;
     private String semesterOffered; 
-    private String courseDescription; //Can be implemented if time allows 
+    //private String courseDescription; //Can be implemented if time allows 
 
     public Course(String courseCode, String courseTitle, String prerequisites, int credits, String semOffered){
         this.courseCode = courseCode;

@@ -74,6 +74,7 @@ public class AdvisingSystem {
         return offered;
     }
 
+    /*
     public static void main(String args[]) {
 
         //HomePage homePage = new HomePage(); //GUI Declaration and Instantiation. Need to 'hook' code
@@ -83,7 +84,7 @@ public class AdvisingSystem {
         ArrayList<Course> student2Courses = courses2();
         ArrayList<Course> student3Courses = courses3();
         
-        ArrayList<Course> coursesOffered = coursesOffered(); //needed for Advising constructor. Not used atm
+        //ArrayList<Course> coursesOffered = coursesOffered(); //needed for Advising constructor. Not used atm
         
         ArrayList<Student> student = new ArrayList<Student>(); //To test students 
         student.add(new Student ("012", "Rose Bushe","1","2","BSc. Computer Science (Special)", 4.21, student1Courses));
@@ -92,11 +93,11 @@ public class AdvisingSystem {
         
         for (Student s: student){ //Use different strategies 
             if (s.getDegree().equals("BSc. Computer Science (Special)"))
-            System.out.println("\nStudent : "+ s.getName() + "\n"+ new CSAdvising(s,coursesOffered).getAdvisedListOfCourses());
+            System.out.println("\nStudent : "+ s.getName() + "\n"+ new CSAdvising(s)/*,coursesOffered).getAdvisedListOfCourses());
 
             else
-            System.out.println("\nStudent: " + s.getName() + "\n"+ new ITAdvising(s,coursesOffered).getAdvisedListOfCourses());
+            System.out.println("\nStudent: " + s.getName() + "\n"+ new ITAdvising(s)/*,coursesOffered).getAdvisedListOfCourses());
         }
 
-    }
+    }*/
 }

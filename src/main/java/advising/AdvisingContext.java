@@ -7,5 +7,14 @@ package advising;
  */
 
 public class AdvisingContext {
+    private AcademicAdvising strat;
+
+    public void setAdvisingStrategy(AcademicAdvising strat){
+        this.strat = strat;
+    }
     
+    public String adviseStudent(){
+        return strat.getAdvisedListOfCourses();
+    }
 }
+

@@ -11,7 +11,7 @@ public class ITAdvising implements AcademicAdvising {
     private ArrayList<Course> recommendedCourses;
     private ArrayList<Course> coreCourses;
 
-    public ITAdvising(Student student, ArrayList<Course> coursesOffered){
+    public ITAdvising(Student student){// Not used: , ArrayList<Course> coursesOffered){
         this.student = student;
         this.coreCourses = itSpecialCoursesL2();
         recommendedCourses = new ArrayList<Course>();
@@ -29,7 +29,7 @@ public class ITAdvising implements AcademicAdvising {
        // If the courses the student needs(Failed Prerequisites) is in courses offered, Add to an ArrayList of recommended courses 
     }
 
-    public ArrayList<Course> getAdvisedListOfCourses(){
+    public String getAdvisedListOfCourses(){
         String currSem = student.getCurrentSemester();
         
         for (Course c: coreCourses){
@@ -39,9 +39,16 @@ public class ITAdvising implements AcademicAdvising {
                 }  
         }
         addLevel1Courses();
-        return recommendedCourses;
+        return formattedRecommendations();
     } 
 
+    public String formattedRecommendations(){
+        String formattedList = " ";
+        for(Course c: recommendedCourses){
+            formattedList += c.toString();
+        }
+        return formattedList;
+    }
 
     public void addLevel1Courses(){
         ArrayList<Course> l1 = itSpecialCoursesL1();
