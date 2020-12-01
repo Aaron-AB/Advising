@@ -53,7 +53,8 @@ public class Course {
     } */
 
     public String toString(){ // For Testing purposes 
-        return ("\nCourse Code: " + courseCode + "    " + "Course Title: " + courseTitle);
+        //return ("\nCourse Code: " + courseCode + "    " + "Course Title: " + courseTitle);
+        return (courseCode);
     }
 
 }
