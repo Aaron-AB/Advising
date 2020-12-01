@@ -3,27 +3,28 @@ package advising;
 import java.util.ArrayList;
 public class FacadeTest {
 
-        public static ArrayList<Course> courses1() { //Test data for Student 1 
-            ArrayList<Course> courses1 = new ArrayList<>();
+        public static ArrayList<String> courses1() { //Test data for Student 1 
+            ArrayList<String> courses1 = new ArrayList<>();
     
-            Course comp1600 = new Course("COMP1600", "Introduction to Computing Concepts", "None", 3,"1");
+           /* Course comp1600 = new Course("COMP1600", "Introduction to Computing Concepts", "None", 3,"1");
             Course comp1601 = new Course("COMP1601", "Computer Programming 1", "None", 3,"1");
             Course comp1602 = new Course("COMP1602", "Computer Programming 2", "None", 3,"2");
             Course comp1603 = new Course("COMP1603", "Computer Programming 3", "None", 3,"2");
             Course comp1604 = new Course("COMP1604", "Mathematics for Computing", "None", 3,"2");
             Course info1600 = new Course("INFO1600", "Introduction to Information Technology Concepts", "None", 3,"1");
             Course info1601 = new Course("INFO1601", "Introduction to WWW Programming", "None", 3,"2");
-    
-            courses1.add(comp1600);
-            courses1.add(comp1601);
-            courses1.add(comp1602);
-            courses1.add(comp1603);
-            courses1.add(comp1604);
-            courses1.add(info1600);
-            courses1.add(info1601);
+    */
+            courses1.add("COMP 1600");
+            courses1.add("COMP 1601");
+            courses1.add("COMP 1602");
+            courses1.add("COMP 1603");
+            courses1.add("COMP 1604");
+            courses1.add("INFO 1600");
+            courses1.add("INFO 1601");
     
             return courses1;
         }
+        /*
         public static ArrayList<Course> courses2() { //Test data for Student 2
             ArrayList<Course> courses2 = new ArrayList<>();
     
@@ -46,7 +47,7 @@ public class FacadeTest {
             courses3.add(comp1602);
             courses3.add(comp1603);
             return courses3;
-        }
+        }*/
         public static ArrayList<Course> coursesOffered(){ //May not be necessary (Was not used yet)
             ArrayList<Course>offered  = new ArrayList<>();
             offered.add(new Course("COMP 2601", "Computer Architecture", "COMP 1600", 3,"1"));
@@ -71,26 +72,26 @@ public class FacadeTest {
             //HomePage homePage = new HomePage(); //GUI Declaration and Instantiation. Need to 'hook' code
             // homePage.setVisible(true);
     
-            ArrayList<Course> student1Courses = courses1(); //for testing 
-            ArrayList<Course> student2Courses = courses2();
-            ArrayList<Course> student3Courses = courses3();
+            ArrayList<String> student1Courses = courses1(); //for testing 
+           // ArrayList<Course> student2Courses = courses2();
+            //ArrayList<Course> student3Courses = courses3();
             
             //ArrayList<Course> coursesOffered = coursesOffered(); //needed for Advising constructor. Not used atm
             
             //ArrayList<Student> student = new ArrayList<Student>(); //To test students 
             
             Student rose =new Student ("012", "Rose Bushe","1","2","BSc. Computer Science (Special)", 4.21, student1Courses);
-            Student masha = new Student ("112", "Marsha Mello","2","2", "BSc. Information Technology (Special)", 2.3, student2Courses);
-            Student jub = new Student ("212", "Jub Jubilee","1","2", "BSc. Computer Science (Special)", 1.9, student3Courses);
+            //Student masha = new Student ("112", "Marsha Mello","2","2", "BSc. Information Technology (Special)", 2.3, student2Courses);
+            //Student jub = new Student ("212", "Jub Jubilee","1","2", "BSc. Computer Science (Special)", 1.9, student3Courses);
            
             Facade testerRose = new Facade(rose);
             System.out.println(testerRose.adviseStudent());
-
+/*
             Facade testerMasha = new Facade(masha);
             System.out.println(testerMasha.adviseStudent());
 
             Facade testerJub = new Facade(jub);
             System.out.println(testerJub.adviseStudent());
-    
+    */
         }
     }

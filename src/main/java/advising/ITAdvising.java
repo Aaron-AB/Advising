@@ -19,8 +19,8 @@ public class ITAdvising implements AcademicAdvising {
 
     public boolean checkPrerequisitesForCoreCourses(Course course){
         String prereq = course.getPrerequisites();
-        for (Course c: student.getCoursesCompleted()){
-            if ((c.getCourseCode().equals(course.getPrerequisites())) || prereq.equals("NONE"))
+        for (String c: student.getCoursesCompleted()){
+            if ((c.equals(course.getPrerequisites())) || prereq.equals("NONE"))
                 return true;
         }
         return false;
@@ -67,8 +67,8 @@ public class ITAdvising implements AcademicAdvising {
 
     private boolean isCompleted(Course course){
         boolean completed = false; 
-        for (Course c: student.getCoursesCompleted()){
-                if (c.getCourseCode().equals(course.getCourseCode()))
+        for (String c: student.getCoursesCompleted()){
+                if (c.equals(course.getCourseCode()))
                     completed = true;
         }
         return completed;

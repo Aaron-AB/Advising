@@ -1,7 +1,7 @@
 package advising;
 
 // Not sure what to name this class
-// This class functions as the client for the stratgey design pattern 
+// This class also functions as the client for the stratgey design pattern 
 public class Facade {
 
     public Student student;
@@ -11,7 +11,7 @@ public class Facade {
         this.student = student;
     }
     
-    /**This method sets the advising strategy  for a student based on there Degree and advises them accordingly*/
+    /**This method sets the advising strategy  for a student based on their Degree and advises them accordingly*/
     public String adviseStudent(){
         if(student.getDegree().equals("BSc. Computer Science (Special)"))
             advisingC.setAdvisingStrategy(new CSAdvising(student));

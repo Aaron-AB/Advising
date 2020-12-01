@@ -5,6 +5,7 @@ package advising;
  * and open the template in the editor.
  */
 
+import java.util.ArrayList;
 
 /**
  *
@@ -20,8 +21,12 @@ public class HomePage extends javax.swing.JFrame {
     /**
      * Creates new form HomePage
      */
+    private ArrayList<String> courses;
+    private Student student;
+    private Facade adviser;
     public HomePage() {
         initComponents();
+        
     }
 
 
@@ -64,6 +69,8 @@ public class HomePage extends javax.swing.JFrame {
         nextButton = new javax.swing.JButton();
         displayPanel = new javax.swing.JScrollPane();
         display = new javax.swing.JTextArea();
+
+        courses = new ArrayList<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,7 +155,13 @@ public class HomePage extends javax.swing.JFrame {
         });
 
         noButton.setText("No");
+
         nextButton.setText("NEXT");
+        nextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nextButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout level1ChoicesLayout = new javax.swing.GroupLayout(level1Choices);
         level1Choices.setLayout(level1ChoicesLayout);
@@ -346,6 +359,82 @@ public class HomePage extends javax.swing.JFrame {
     private void degreeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_degreeComboActionPerformed
         
     }//GEN-LAST:event_degreeComboActionPerformed
+
+    /* This Method extracts the student information from the gui and creates the student 
+        The adviseStudent method of the Facade gets the recommended list of courses which is printed to the JPanel
+        The functionality works, the code is however pulling course information from the wrong place
+        
+        I also changed the generic type of coursesCompleted ArrayList in the Student class from Course to String 
+ */
+    private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {
+        if(comp1600.isSelected()){
+            courses.add("COMP 1600");
+        }
+        
+        if (comp1601.isSelected()){
+            courses.add("COMP 1601");
+        }
+        
+        if(comp1602.isSelected()){
+            courses.add("COMP 1602");
+        }
+        
+        if(comp1603.isSelected()){
+            courses.add("COMP 1603");
+        }
+        
+        if(comp1604.isSelected()){
+            courses.add("COMP 1604");
+        }
+        
+        if(info1600.isSelected()){
+            courses.add("INFO 1600");
+        }
+        
+        if(info1601.isSelected()){
+            courses.add("INFO 1601");
+        }
+        /*
+        System.out.println("Hi? ");
+        for(String s: courses){
+            System.out.println(s);
+        }*/
+
+        String name = nameField.getText();
+        //System.out.println("Name Field: " + nameField.getText());
+
+        String id = idField.getText();
+        //System.out.println("ID: " + idField.getText());
+
+        String currSem = "1";
+        if(sem1Button.isSelected())
+            currSem = "1";
+        if(sem2Button.isSelected())
+            currSem = "2"; // selected button
+        
+        //System.out.println("Current semester: " + currSem);
+        
+        String currYear = "2";
+        //System.out.println("Current Year: " + currYear);
+
+        String degree = degreeCombo.getSelectedItem().toString(); // Not sure how this is gonna work
+        //System.out.println("Degree: " + degree);
+        
+        double gpa = Double.valueOf(gpaField.getText());
+        //System.out.println("GPA: " + gpa);
+
+        student = new Student(name, id, currSem, currYear, degree, gpa, courses);
+        //System.out.println("Student:" + student);
+
+        adviser = new Facade(student);
+        //System.out.println("Check point");
+
+        //String advice = adviser.adviseStudent();
+        //System.out.println(advice);
+
+        display.setText(adviser.adviseStudent());
+    
+    }
 
     /**
      * @param args the command line arguments

@@ -41,6 +41,13 @@ public class Course {
         details += "Credits: " + credits + "\n";
         return details;
     }
+
+    public String toString(){
+        String details = "Course Code: " + courseCode;
+        details += "    Course Title: " + courseTitle;
+        details += "    Credits: " + credits + "\n";
+        return details;
+    }
     
     /* 
     * This is the MAIN toString(). Needs to be properly formatted 
@@ -52,9 +59,9 @@ public class Course {
         return details;
     } */
 
-    public String toString(){ // For Testing purposes 
+    /*public String toString(){ // For Testing purposes 
         //return ("\nCourse Code: " + courseCode + "    " + "Course Title: " + courseTitle);
         return (courseCode);
-    }
+    }*/
 
 }

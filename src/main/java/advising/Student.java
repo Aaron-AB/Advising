@@ -11,9 +11,9 @@ public class Student {
     private String currentYear; 
     private double studentGPA;
     private String degree;
-    private ArrayList<Course> coursesCompleted;
+    private ArrayList<String> coursesCompleted;
 
-    public Student(String studentID, String studentName,String currSem, String currYear, String degree, double gpa,  ArrayList<Course> courses){
+    public Student(String studentID, String studentName,String currSem, String currYear, String degree, double gpa,  ArrayList<String> courses){
         this.studentID = studentID;
         this.studentName = studentName;
         this.currentSemester = currSem;
@@ -31,15 +31,15 @@ public class Student {
         return studentName;
     } 
 
-    public void addCoursesNeeded(ArrayList<Course> courses){
+    public void addCoursesNeeded(ArrayList<String> courses){
         this.coursesCompleted = courses;
     }
 
-    public void addCourseToNeeded(Course course) {
+    public void addCourseToNeeded(String course) {
         this.coursesCompleted.add(course);
     }
 
-    public ArrayList<Course> getCoursesCompleted() {
+    public ArrayList<String> getCoursesCompleted() {
         return coursesCompleted;
     }
     

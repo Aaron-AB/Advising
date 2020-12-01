@@ -21,8 +21,8 @@ public class CSAdvising implements AcademicAdvising {
      */
     public boolean checkPrerequisitesForCoreCourses(Course course){
         String prereq = course.getPrerequisites();
-        for (Course c: student.getCoursesCompleted()){
-            if ((c.getCourseCode().equals(course.getPrerequisites())) || prereq.equals("NONE"))
+        for (String c: student.getCoursesCompleted()){
+            if ((c.equals(course.getPrerequisites())) || prereq.equals("NONE"))
                 return true;
         }
         return false;
@@ -43,6 +43,7 @@ public class CSAdvising implements AcademicAdvising {
                 }  
         }
         addLevel1Courses(); //any outstanding level 1 if max not reached 
+        
         return formattedRecommendations();
     } 
 
@@ -57,7 +58,7 @@ public class CSAdvising implements AcademicAdvising {
         for (Course c: l1){
                 if ((c.getSemesterOffered().equals(currSem)) && !isCompleted(c)){
                     if ((recommendedCourses.size()<numCourses)){
-                    recommendedCourses.add(c);
+                        recommendedCourses.add(c);
                     }
                 }  
         }
@@ -69,8 +70,8 @@ public class CSAdvising implements AcademicAdvising {
      */
     private boolean isCompleted(Course course){
         boolean completed = false; 
-        for (Course c: student.getCoursesCompleted()){
-                if (c.getCourseCode().equals(course.getCourseCode()))
+        for (String c: student.getCoursesCompleted()){
+                if (c.equals(course.getCourseCode()))
                     completed = true;
         }
         return completed;

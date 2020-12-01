@@ -6,7 +6,7 @@ package advising;
  * The courses for the Student object will be obtained from the GUI
  * This can also be used for communication between the gui and the other classes. 
  */
-
+/*
 import java.util.ArrayList;
 
 public class AdvisingSystem {
@@ -99,5 +99,5 @@ public class AdvisingSystem {
             System.out.println("\nStudent: " + s.getName() + "\n"+ new ITAdvising(s)/*,coursesOffered).getAdvisedListOfCourses());
         }
 
-    }*/
-}
+    }
+}*/
