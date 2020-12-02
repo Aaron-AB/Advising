@@ -4,15 +4,18 @@ package advising;
 // This class also functions as the client for the stratgey design pattern 
 public class Facade {
 
-    public Student student;
+    //public Student student;
     public AdvisingContext advisingC = new AdvisingContext();
 
-    public Facade(Student student){
-        this.student = student;
-    }
+    //David constuctor 
+    public Facade (){}
     
-    /**This method sets the advising strategy  for a student based on their Degree and advises them accordingly*/
-    public String adviseStudent(){
+    /*
+    public Facade(Student student){
+        //this.student = student;
+    }*/
+    
+    public String adviseStudent(Student student){
         if(student.getDegree().equals("BSc. Computer Science (Special)"))
             advisingC.setAdvisingStrategy(new CSAdvising(student));
 
@@ -21,6 +24,16 @@ public class Facade {
         
         return advisingC.adviseStudent();
     }
+    /**This method sets the advising strategy  for a student based on their Degree and advises them accordingly*/
+    /*public String adviseStudent(){
+        if(student.getDegree().equals("BSc. Computer Science (Special)"))
+            advisingC.setAdvisingStrategy(new CSAdvising(student));
+
+        if(student.getDegree().equals("BSc. Information Technology (Special)"))
+            advisingC.setAdvisingStrategy(new ITAdvising(student));
+        
+        return advisingC.adviseStudent();
+    }*/
     
        //The gui would create an instance of Student, then create an instance of Facade using the student object
        //The Facade instance would call adviseStudent which would return a string to the gui

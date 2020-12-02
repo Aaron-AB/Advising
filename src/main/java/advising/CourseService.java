@@ -12,15 +12,18 @@ import org.json.JSONObject;
 public class CourseService {
     public ArrayList<Course> itCourses;
     public ArrayList<Course> csCourses;
+    public ArrayList<Course> level1Courses;
     public CourseService() {
         this.itCourses = new ArrayList<Course>();
         this.csCourses = new ArrayList<Course>();
+        this.level1Courses =new ArrayList<Course>();
         this.fetchCourses();
     }
     
     public void fetchCourses() {
         itCourses = this.fetchDegree("itSpecialL2Courses.json", "itSpecialL2Courses");
         csCourses = this.fetchDegree("csSpecialL2Courses.json", "csSpecialL2Courses");
+        level1Courses = this.fetchDegree("level1Courses.json","level1Courses");
     }
     
     public ArrayList<Course> fetchDegree(String pathName, String arrayName) {
@@ -53,8 +56,15 @@ public class CourseService {
     public ArrayList<Course> getCS() {
         return this.csCourses;
     }
+
+    
+    public ArrayList<Course> getLevel1() {
+        return this.level1Courses;
+    } 
     
 
     public static void main(String[] args) throws IOException {
+        CourseService cserv = new CourseService();
+        System.out.println(cserv.getLevel1());
     }
 }

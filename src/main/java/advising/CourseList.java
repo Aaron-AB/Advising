@@ -3,7 +3,6 @@ package advising;
 
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 public class CourseList extends javax.swing.JFrame {
 
@@ -40,67 +39,55 @@ public class CourseList extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         csButton = new javax.swing.JButton();
         itButton = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                jList1ValueChanged(evt);
             }
         });
         jScrollPane1.setViewportView(jList1);
 
-        csButton.setText("COMP");
+        csButton.setText("COMPUTER SCIENCE");
         csButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 csButtonActionPerformed(evt);
             }
         });
 
-        itButton.setText("INFO");
+        itButton.setText("INFORMATION TECHNOLOGY");
         itButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itButtonActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(82, 82, 82)
                         .addComponent(csButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(itButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(csButton)
-                            .addComponent(itButton))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(csButton)
+                    .addComponent(itButton))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,9 +97,10 @@ public class CourseList extends javax.swing.JFrame {
         String csButton = "cs";
         showList(csButton);
     }//GEN-LAST:event_csButtonActionPerformed
+
     public void showList(String button) {
         jList1.removeAll();
-        DefaultListModel list = new DefaultListModel();
+        DefaultListModel<String> list = new DefaultListModel<String>();
         ArrayList<Course> deg;
         if(button=="cs") {
             deg = csCourses;
@@ -122,10 +110,8 @@ public class CourseList extends javax.swing.JFrame {
         
         String code = null;
         for(int i=0; i<deg.size(); i++) {
-            code = deg.get(i).getCourseCode();
-            System.out.println(code);
-            //list.addElement(code);
-            list.addElement(deg.get(i));
+            code = deg.get(i).displayCourseInformation();
+            list.addElement(code);
         }
         jList1.setModel(list);
     }
@@ -133,13 +119,6 @@ public class CourseList extends javax.swing.JFrame {
         String csButton = "it";
         showList(csButton);
     }//GEN-LAST:event_itButtonActionPerformed
-
-    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
-        ListModel list = jList1.getModel();
-        int selectedIndex = jList1.getSelectedIndex();
-        Course course = (Course)list.getElementAt(selectedIndex);
-        jTextArea1.setText(course.displayCourseInformation());
-    }//GEN-LAST:event_jList1ValueChanged
 
     /**
      * @param args the command line arguments
@@ -181,7 +160,5 @@ public class CourseList extends javax.swing.JFrame {
     private javax.swing.JButton itButton;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

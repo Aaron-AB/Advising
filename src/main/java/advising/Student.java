@@ -2,9 +2,6 @@ package advising;
 import java.util.ArrayList;
 public class Student {
 
-    /**
-     * -
-     */
     private String studentID;
     private String studentName;
     private String currentSemester;
@@ -13,6 +10,8 @@ public class Student {
     private String degree;
     private ArrayList<String> coursesCompleted;
 
+    public Student(){}
+    
     public Student(String studentID, String studentName,String currSem, String currYear, String degree, double gpa,  ArrayList<String> courses){
         this.studentID = studentID;
         this.studentName = studentName;
@@ -20,6 +19,16 @@ public class Student {
         this.currentYear = currYear;
         this.degree = degree;
         this.studentGPA = gpa;
+        coursesCompleted = courses;
+    }
+
+    public Student(String studentID, String studentName,String currSem, String currYear, String degree, String gpa,  ArrayList<String> courses){
+        this.studentID = studentID;
+        this.studentName = studentName;
+        this.currentSemester = currSem;
+        this.currentYear = currYear;
+        this.degree = degree;
+        this.studentGPA = getGPADouble(gpa);
         coursesCompleted = courses;
     }
 
@@ -34,6 +43,7 @@ public class Student {
     public void addCoursesNeeded(ArrayList<String> courses){
         this.coursesCompleted = courses;
     }
+    
 
     public void addCourseToNeeded(String course) {
         this.coursesCompleted.add(course);
@@ -54,4 +64,17 @@ public class Student {
     public String getCurrentSemester(){
         return currentSemester;
     }
+
+    private double getGPADouble(String gpa){
+        try{
+            double GPA = Double.parseDouble(gpa);
+            if (GPA <0 || GPA >4.3)
+            return -1;
+            return GPA;
+        }
+         catch(NumberFormatException ex){
+           return -1;
+         }
+    }
+    
 }

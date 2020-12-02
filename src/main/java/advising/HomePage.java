@@ -6,6 +6,8 @@ package advising;
  */
 
 import java.util.ArrayList;
+import java.awt.Color;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -24,10 +26,33 @@ public class HomePage extends javax.swing.JFrame {
     private ArrayList<String> courses;
     private Student student;
     private Facade adviser;
+
+    public HomePage(Facade facade){
+        adviser = facade;
+        initComponents();
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(sem1Button);
+        buttonGroup.add(sem2Button);
+
+        //These can buttons can be deleted. 
+        level2Prompt.setVisible(false);
+        yesButton.setVisible(false);
+        noButton.setVisible(false);
+    }
+
+    public HomePage(){}
+    /*
     public HomePage() {
         initComponents();
-        
-    }
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(sem1Button);
+        buttonGroup.add(sem2Button);
+
+        //These can buttons can be deleted. 
+        level2Prompt.setVisible(false);
+        yesButton.setVisible(false);
+        noButton.setVisible(false);
+    } */
 
 
     /**
@@ -66,20 +91,21 @@ public class HomePage extends javax.swing.JFrame {
         level2Prompt = new javax.swing.JLabel();
         yesButton = new javax.swing.JRadioButton();
         noButton = new javax.swing.JRadioButton();
-        nextButton = new javax.swing.JButton();
+        advisingButton = new javax.swing.JButton();
+        coursesButton = new javax.swing.JButton();
         displayPanel = new javax.swing.JScrollPane();
         display = new javax.swing.JTextArea();
 
         courses = new ArrayList<String>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        sem1Button.setSelected(true);
         dctiLabel.setText("DCIT ACADEMIC ADVISING ");
         dctiLabel.setSize(new java.awt.Dimension(76, 28));
 
         nameLabel.setText("NAME");
 
-        nameField.setText("  ");
+        nameField.setText("");
         nameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameFieldActionPerformed(evt);
@@ -88,7 +114,7 @@ public class HomePage extends javax.swing.JFrame {
 
         idLabel.setText("STUDENT ID");
 
-        idField.setText("  ");
+        idField.setText("");
         idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idFieldActionPerformed(evt);
@@ -116,8 +142,8 @@ public class HomePage extends javax.swing.JFrame {
         gpaLabel.setText("GPA");
         gpaField.setText("  ");
         yearLabel.setText("YEAR");
-        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Current Year of Study", "Year 2" }));
-        degreeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Degree Program", "BSc. Computer Science (Special)","BSc. Information Technology (Special)"}));
+        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Year 2" }));
+        degreeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"BSc. Computer Science (Special)","BSc. Information Technology (Special)"}));
         choiceLabel.setText("Please select the Level I courses that were sucessfully completed:");
 
         comp1600.setText("COMP 1600");
@@ -156,10 +182,17 @@ public class HomePage extends javax.swing.JFrame {
 
         noButton.setText("No");
 
-        nextButton.setText("NEXT");
-        nextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        advisingButton.setText("Get Advising");
+        advisingButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nextButtonMouseClicked(evt);
+                advisingButtonMouseClicked(evt);
+            }
+        });
+
+        coursesButton.setText("Get Courses");
+        coursesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                coursesButtonMouseClicked(evt);
             }
         });
 
@@ -190,8 +223,10 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(noButton))
                     .addComponent(choiceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(level1ChoicesLayout.createSequentialGroup()
-                        .addGap(159, 159, 159)
-                        .addComponent(nextButton)))
+                    .addGap(110, 110, 110)
+                    .addComponent(coursesButton)
+                    //.addGap(159, 159, 159)
+                        .addComponent(advisingButton)))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         level1ChoicesLayout.setVerticalGroup(
@@ -219,7 +254,10 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(yesButton)
                     .addComponent(noButton))
                 .addGap(13, 13, 13)
-                .addComponent(nextButton))
+                .addGroup(level1ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(coursesButton)
+                .addComponent(advisingButton))
+            )
         );
 
         display.setColumns(20);
@@ -256,7 +294,7 @@ public class HomePage extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelLayout.createSequentialGroup()
                                         .addComponent(nameLabel)
                                         .addGap(3, 3, 3)
-                                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                                         .addGap(61, 61, 61)
                                         .addComponent(idLabel)))
                                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,7 +325,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
-                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idLabel)
                     .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -359,6 +397,10 @@ public class HomePage extends javax.swing.JFrame {
     private void degreeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_degreeComboActionPerformed
         
     }//GEN-LAST:event_degreeComboActionPerformed
+    private void coursesButtonMouseClicked(java.awt.event.MouseEvent evt){
+        CourseList courseList = new CourseList();
+        courseList.setVisible(true);
+    }
 
     /* This Method extracts the student information from the gui and creates the student 
         The adviseStudent method of the Facade gets the recommended list of courses which is printed to the JPanel
@@ -366,76 +408,87 @@ public class HomePage extends javax.swing.JFrame {
         
         I also changed the generic type of coursesCompleted ArrayList in the Student class from Course to String 
  */
-    private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {
+    private void advisingButtonMouseClicked(java.awt.event.MouseEvent evt) {
         if(comp1600.isSelected()){
-            courses.add("COMP 1600");
+            courses.add("COMP1600");
         }
         
         if (comp1601.isSelected()){
-            courses.add("COMP 1601");
+            courses.add("COMP1601");
         }
         
         if(comp1602.isSelected()){
-            courses.add("COMP 1602");
+            courses.add("COMP1602");
         }
         
         if(comp1603.isSelected()){
-            courses.add("COMP 1603");
+            courses.add("COMP1603");
         }
         
         if(comp1604.isSelected()){
-            courses.add("COMP 1604");
+            courses.add("COMP1604");
         }
         
         if(info1600.isSelected()){
-            courses.add("INFO 1600");
+            courses.add("INFO1600");
         }
         
         if(info1601.isSelected()){
-            courses.add("INFO 1601");
+            courses.add("INFO1601");
         }
-        /*
-        System.out.println("Hi? ");
-        for(String s: courses){
-            System.out.println(s);
-        }*/
+        
 
         String name = nameField.getText();
-        //System.out.println("Name Field: " + nameField.getText());
-
         String id = idField.getText();
-        //System.out.println("ID: " + idField.getText());
-
         String currSem = "1";
         if(sem1Button.isSelected())
             currSem = "1";
         if(sem2Button.isSelected())
-            currSem = "2"; // selected button
-        
-        //System.out.println("Current semester: " + currSem);
-        
+            currSem = "2"; 
         String currYear = "2";
-        //System.out.println("Current Year: " + currYear);
-
-        String degree = degreeCombo.getSelectedItem().toString(); // Not sure how this is gonna work
-        //System.out.println("Degree: " + degree);
-        
-        double gpa = Double.valueOf(gpaField.getText());
-        //System.out.println("GPA: " + gpa);
-
-        student = new Student(name, id, currSem, currYear, degree, gpa, courses);
-        //System.out.println("Student:" + student);
-
-        adviser = new Facade(student);
-        //System.out.println("Check point");
-
-        //String advice = adviser.adviseStudent();
-        //System.out.println(advice);
-
-        display.setText(adviser.adviseStudent());
+        String degree = degreeCombo.getSelectedItem().toString(); 
+        double gpa = Double.valueOf(getGPADouble());
+        student = new Student(id, name, currSem, currYear, degree, gpa, courses);
     
+        if (getGPADouble()<0){
+        display.setText(adviser.adviseStudent(student));
+        display.setForeground(Color.red);
+        }
+        else{
+        display.setText(adviser.adviseStudent(student));
+        display.setForeground(Color.black);
+        }
+        
+        clear();
     }
 
+    private void clear(){
+        comp1600.setSelected(false);
+        comp1601.setSelected(false);
+        comp1602.setSelected(false);
+        comp1603.setSelected(false);
+        comp1604.setSelected(false);
+        info1600.setSelected(false);        
+        info1601.setSelected(false);
+        courses.clear();
+        nameField.setText("");
+        idField.setText("");
+        sem1Button.setSelected(true);
+        degreeCombo.setSelectedIndex(0);
+        yearComboBox.setSelectedIndex(0);
+        gpaField.setText("");
+    }
+
+    private double getGPADouble(){
+    try{
+        double gpa = Double.parseDouble(gpaField.getText().strip());
+        return gpa;
+    }
+     catch(NumberFormatException ex){
+       return -1;
+     }
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -445,6 +498,7 @@ public class HomePage extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -467,6 +521,8 @@ public class HomePage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new HomePage().setVisible(true);
+
+
                 
             }
         });
@@ -494,7 +550,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel level2Prompt;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
-    private javax.swing.JButton nextButton;
+    private javax.swing.JButton advisingButton;
     private javax.swing.JRadioButton noButton;
     private javax.swing.JPanel panel;
     private javax.swing.JRadioButton sem1Button;
@@ -503,5 +559,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> yearComboBox;
     private javax.swing.JLabel yearLabel;
     private javax.swing.JRadioButton yesButton;
+    private javax.swing.JButton coursesButton;
     // End of variables declaration//GEN-END:variables
 }

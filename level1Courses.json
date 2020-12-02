@@ -48,6 +48,13 @@
         "Prerequisites": "NONE",
         "Credits": 3,
         "Semester": 2
+    },
+    {
+        "Course Code":"MATH 1115",
+        "Course Name":"Fundamental Mathematics for the General Sciences I",
+        "Prerequisites": "NONE",
+        "Credits": 3,
+        "Semester": 1
     }
     ]
   }
