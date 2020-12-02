@@ -13,9 +13,9 @@ public class CourseList extends javax.swing.JFrame {
     /**
      * Creates new form CourseList
      */
-    public ArrayList<Course> itCourses;
-    public ArrayList<Course> csCourses;
-    public CourseService courseService;
+    private ArrayList<Course> itCourses;
+    private ArrayList<Course> csCourses;
+    private CourseService courseService;
     public CourseList() {
         initComponents();
         this.itCourses = new ArrayList<Course>();

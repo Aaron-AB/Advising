@@ -10,9 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class CourseService {
-    public ArrayList<Course> itCourses;
-    public ArrayList<Course> csCourses;
-    public ArrayList<Course> level1Courses;
+    private ArrayList<Course> itCourses;
+    private ArrayList<Course> csCourses;
+    private ArrayList<Course> level1Courses;
     public CourseService() {
         this.itCourses = new ArrayList<Course>();
         this.csCourses = new ArrayList<Course>();
