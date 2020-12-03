@@ -15,6 +15,7 @@ package advising;
         this.semesterOffered = semOffered;
     }
     
+    
     public String getCourseCode() {
         return formatCourseCode(this.courseCode);
     }

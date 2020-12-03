@@ -5,13 +5,15 @@ public interface AcademicAdvising {
 
     final double gpaLowerLimit = 2;
 
-    /**returns the maximum number of courses a student can do */
+    /**@param Student 
+     * @return the maximum number of courses a student can do */
     public int getNumberOfCoursesBasedOnGPA(Student student);
 
-    /**returns true if the student has completed the prereqisiute */
+    /**@param Course
+     * @return true if the student has completed the prereqisiute */
     public boolean checkPrerequisitesForCoreCourses(Course course);
     
-    /**returns a recommended list of courses for a student */
+    /**@return a recommended list of courses for a student */
     public String getAdvisedListOfCourses();
 
 }
