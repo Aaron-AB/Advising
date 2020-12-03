@@ -3,8 +3,8 @@ package advising;
 public class AdvisingSystem {
     
     public static void main(String[] args) {
-        Facade  facade = new Facade();
-        HomePage gui = new HomePage(facade);
+        AdvisingAgent  advisingAgent = new AdvisingAgent();
+        HomePage gui = new HomePage(advisingAgent);
         gui.setVisible(true); 
    }
 

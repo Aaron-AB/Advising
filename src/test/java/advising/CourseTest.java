@@ -15,7 +15,7 @@ public class CourseTest {
     }
 
     @Test
-    public void testCourse(){
+    public void testCourseCreation(){
         assertNotNull(course);
     }
 
@@ -27,7 +27,7 @@ public class CourseTest {
     }
 
     @Test
-    public void testGetPreqquisites(){
+    public void testGetPrequisites(){
         String expected1 = "NONE";
         String actual1 = course.getPrerequisites();
         assertEquals(expected1, actual1);
@@ -53,10 +53,10 @@ public class CourseTest {
     @Test
     public void testDisplayCourseInformation(){
         String expected = "Course Code: COMP 1600";
-        expected += "\nCourse Title: Introduction to Computing Concepts";
-        expected += "\nSemester Offered: 1";
-        expected += "\nPrerequisites: NONE";
-        expected += "\nCredits: 3\n";
+        expected += "\n Course Title: Introduction to Computing Concepts";
+        expected += "\n Semester Offered: 1";
+        expected += "\n Prerequisites: NONE";
+        expected += "\n Credits: 3\n";
         String actual = course.displayCourseInformation();
         assertEquals(expected, actual);
     }

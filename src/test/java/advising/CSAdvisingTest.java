@@ -1,5 +1,6 @@
 package advising;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
@@ -18,6 +19,11 @@ public class CSAdvisingTest {
         student = new Student("123", "Dolly", "1","Year 2", "BSc. Computer Science (Special)", 4.0, courses);
         advising = new CSAdvising(student);
     }
+
+    @Test
+    public void testCSAdvingCourseCreation(){
+        assertNotNull(advising);
+    } 
 
     @Test
     public void testCheckPrerequisitesForCoreCourses(){

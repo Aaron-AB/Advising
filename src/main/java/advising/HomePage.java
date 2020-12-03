@@ -25,10 +25,10 @@ public class HomePage extends javax.swing.JFrame {
      */
     private ArrayList<String> courses;
     private Student student;
-    private Facade adviser;
+    private AdvisingAgent adviser;
 
-    public HomePage(Facade facade){
-        adviser = facade;
+    public HomePage(AdvisingAgent agent){
+        adviser = agent;
         initComponents();
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(sem1Button);
@@ -41,19 +41,6 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     public HomePage(){}
-    /*
-    public HomePage() {
-        initComponents();
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(sem1Button);
-        buttonGroup.add(sem2Button);
-
-        //These can buttons can be deleted. 
-        level2Prompt.setVisible(false);
-        yesButton.setVisible(false);
-        noButton.setVisible(false);
-    } */
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,6 +71,7 @@ public class HomePage extends javax.swing.JFrame {
         comp1600 = new javax.swing.JRadioButton();
         comp1601 = new javax.swing.JRadioButton();
         comp1602 = new javax.swing.JRadioButton();
+        math1115 = new javax.swing.JRadioButton();
         comp1603 = new javax.swing.JRadioButton();
         comp1604 = new javax.swing.JRadioButton();
         info1600 = new javax.swing.JRadioButton();
@@ -167,6 +155,13 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        math1115.setText("MATH 1115");
+        math1115.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                math1115ActionPerformed(evt);
+            }
+        });
+
         comp1603.setText("COMP 1603");
         comp1604.setText("COMP 1604");
         info1600.setText("INFO 1600");
@@ -211,7 +206,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(level1ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(comp1604)
                     .addComponent(info1600)
-                    .addComponent(info1601))
+                    .addComponent(info1601)
+                    .addComponent(math1115))
                 .addGap(46, 46, 46))
             .addGroup(level1ChoicesLayout.createSequentialGroup()
                 .addGroup(level1ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +243,9 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(comp1602)
                     .addComponent(info1601))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(level1ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(comp1603)
+                .addComponent(math1115))
                 .addGap(12, 12, 12)
                 .addGroup(level1ChoicesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(level2Prompt)
@@ -382,6 +380,10 @@ public class HomePage extends javax.swing.JFrame {
        
     }//GEN-LAST:event_comp1602ActionPerformed
 
+    private void math1115ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comp1602ActionPerformed
+       
+    }//GEN-LAST:event_comp1602ActionPerformed
+
     private void comp1600ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comp1600ActionPerformed
        
     }//GEN-LAST:event_comp1600ActionPerformed
@@ -420,6 +422,10 @@ public class HomePage extends javax.swing.JFrame {
         if(comp1602.isSelected()){
             courses.add("COMP1602");
         }
+
+        if(math1115.isSelected()){
+            courses.add("MATH1115");
+        }
         
         if(comp1603.isSelected()){
             courses.add("COMP1603");
@@ -449,23 +455,33 @@ public class HomePage extends javax.swing.JFrame {
         String degree = degreeCombo.getSelectedItem().toString(); 
         double gpa = Double.valueOf(getGPADouble());
         student = new Student(id, name, currSem, currYear, degree, gpa, courses);
-    
+
+        display.setForeground(Color.black);
+
+        if (nameField.getText().equals("") || idField.getText().equals("") || gpaField.getText().equals("")){
+            display.setForeground(Color.blue);
+            display.setText("Please enter all information.");
+        }
+        else {
         if (getGPADouble()<0){
-        display.setText(adviser.adviseStudent(student));
         display.setForeground(Color.red);
+        String text = adviser.adviseStudent(student) + "\nPlease contact the Department of Computing and Information Technology for further assistance.";
+        display.setForeground(Color.blue);
+        display.setText(text);
+        display.setForeground(Color.blue);
         }
         else{
         display.setText(adviser.adviseStudent(student));
-        display.setForeground(Color.black);
         }
-        
         clear();
+    }
     }
 
     private void clear(){
         comp1600.setSelected(false);
         comp1601.setSelected(false);
         comp1602.setSelected(false);
+        math1115.setSelected(false);
         comp1603.setSelected(false);
         comp1604.setSelected(false);
         info1600.setSelected(false);        
@@ -533,6 +549,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JRadioButton comp1600;
     private javax.swing.JRadioButton comp1601;
     private javax.swing.JRadioButton comp1602;
+    private javax.swing.JRadioButton math1115;
     private javax.swing.JRadioButton comp1603;
     private javax.swing.JRadioButton comp1604;
     private javax.swing.JLabel dctiLabel;

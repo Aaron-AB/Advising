@@ -1,8 +1,8 @@
 package advising;
+
+import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Order;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,6 +21,11 @@ public class StudentTest {
         //courses.add("COMP1600","COMP1601","COMP1602","COMP1603","COMP1604","INFO1600","INFO1601","MATH1115");
         student = new Student("123", "Dolly", "1","Year 2", "BSc. Computer Science (Special)", 4.0, courses);
     }
+
+    @Test
+    public void testStudentCreation(){
+        assertNotNull(student);
+    } 
 
     @Test
     public static void testGetDegree(){
@@ -53,25 +58,6 @@ public class StudentTest {
     public void testGetCurrentSemester(){
         String actual = student.getCurrentSemester();
         String expected = "1";
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    @Order(3)
-    public void testAddCoursesNeeded(){
-        ArrayList<String> expected = new ArrayList<String>(Arrays.asList("COMP1600","COMP1601"));
-        student.addCoursesNeeded(expected);
-        ArrayList<String> actual = student.getCoursesCompleted();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    @Order(2)
-    public void testAddCourseToNeeded(){
-        String course = "COMP1603";
-        student.addCourseToNeeded(course);
-        ArrayList<String> actual = student.getCoursesCompleted();
-        ArrayList<String> expected = new ArrayList<String>(Arrays.asList("COMP1603"));
         assertEquals(expected, actual);
     }
 

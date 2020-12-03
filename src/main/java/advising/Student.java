@@ -40,15 +40,6 @@ public class Student {
         return studentName;
     } 
 
-    public void addCoursesNeeded(ArrayList<String> courses){
-        this.coursesCompleted = courses;
-    }
-    
-
-    public void addCourseToNeeded(String course) {
-        this.coursesCompleted.add(course);
-    }
-
     public ArrayList<String> getCoursesCompleted() {
         return coursesCompleted;
     }

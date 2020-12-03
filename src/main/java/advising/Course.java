@@ -33,10 +33,10 @@ public class Course {
 
     public String displayCourseInformation(){
         String details = "Course Code: " + courseCode;
-        details += "\nCourse Title: " + courseTitle;
-        details += "\nSemester Offered: " + semesterOffered;
-        details += "\nPrerequisites: " + prerequisites;
-        details += "\nCredits: " + credits + "\n";
+        details += "\n Course Title: " + courseTitle;
+        details += "\n Semester Offered: " + semesterOffered;
+        details += "\n Prerequisites: " + prerequisites;
+        details += "\n Credits: " + credits + "\n";
         return details;
     }
 

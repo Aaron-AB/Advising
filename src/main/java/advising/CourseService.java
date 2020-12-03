@@ -10,9 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class CourseService {
-    public ArrayList<Course> itCourses;
-    public ArrayList<Course> csCourses;
-    public ArrayList<Course> level1Courses;
+    private ArrayList<Course> itCourses;
+    private ArrayList<Course> csCourses;
+    private ArrayList<Course> level1Courses;
     public CourseService() {
         this.itCourses = new ArrayList<Course>();
         this.csCourses = new ArrayList<Course>();
@@ -57,12 +57,10 @@ public class CourseService {
         return this.csCourses;
     }
 
-    
-    public ArrayList<Course> getLevel1() {
+      public ArrayList<Course> getLevel1() {
         return this.level1Courses;
     } 
     
-
     public static void main(String[] args) throws IOException {
         CourseService cserv = new CourseService();
         System.out.println(cserv.getLevel1());

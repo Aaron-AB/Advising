@@ -6,16 +6,14 @@ import javax.swing.DefaultListModel;
 
 public class CourseList extends javax.swing.JFrame {
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
+    
     /**
      * Creates new form CourseList
      */
-    public ArrayList<Course> itCourses;
-    public ArrayList<Course> csCourses;
-    public CourseService courseService;
+    private ArrayList<Course> itCourses;
+    private ArrayList<Course> csCourses;
+    private CourseService courseService;
     public CourseList() {
         initComponents();
         this.itCourses = new ArrayList<Course>();

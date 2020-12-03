@@ -16,6 +16,8 @@ public class ITAdvising implements AcademicAdvising {
     public boolean checkPrerequisitesForCoreCourses(Course course){
         String prereq = course.getPrerequisites();
         for (String c: student.getCoursesCompleted()){
+            if((course.getPrerequisites().equals("COMP1600") || course.getPrerequisites().equals("INFO1600")) && (c.equals("COMP1600") || c.equals("INFO1600")))
+                return true;
             if ((c.equals(course.getPrerequisites())) || prereq.equals("NONE"))
                 return true;
         }

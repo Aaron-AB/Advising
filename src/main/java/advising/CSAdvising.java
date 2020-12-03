@@ -14,9 +14,6 @@ public class CSAdvising implements AcademicAdvising {
         recommendedCourses = new ArrayList<Course>();
     }
 
-    /**
-     * Checks if student successfully completed a prereq
-     */
     public boolean checkPrerequisitesForCoreCourses(Course course){
         String prereq = course.getPrerequisites();
         for (String c: student.getCoursesCompleted()){
@@ -26,9 +23,6 @@ public class CSAdvising implements AcademicAdvising {
         return false;
     }
 
-    /**
-     * Creates listed of 3-5 courses 
-     */
     public String getAdvisedListOfCourses(){
         String currSem = student.getCurrentSemester(); 
 
