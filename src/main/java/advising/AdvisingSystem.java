@@ -1,5 +1,6 @@
 package advising;
 
+/** Responsible for initializing the GUI */
 public class AdvisingSystem {
     
     public static void main(String[] args) {

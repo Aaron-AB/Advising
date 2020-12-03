@@ -1,5 +1,6 @@
 package advising;
 
+/** */
 public class AdvisingAgent {
 
     public Student student;
@@ -7,6 +8,7 @@ public class AdvisingAgent {
 
     public AdvisingAgent (){}
     
+    /**returns recommended courses for a student  */
     public String adviseStudent(Student student){
         if(student.getDegree().equals("BSc. Computer Science (Special)"))
             advisingC.setAdvisingStrategy(new CSAdvising(student));

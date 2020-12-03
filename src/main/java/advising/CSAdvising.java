@@ -1,5 +1,5 @@
 package advising;
-//Strategy1
+/**Strategy used for advising Computer Science (Special) students */
 import java.util.ArrayList;
 public class CSAdvising implements AcademicAdvising {
 
@@ -35,14 +35,20 @@ public class CSAdvising implements AcademicAdvising {
                     recommendedCourses.add(c);
                 }  
         }
-        addLevel1Courses(); //any outstanding level 1 if max not reached 
+        addLevel1Courses(); 
         
         return formattedRecommendations();
     } 
 
-    /**
-     * Add level one courses that were not successfully completed 
-     */
+    public int getNumberOfCoursesBasedOnGPA(Student student) {
+        if (student.getGPA()>4.3 || student.getGPA()<0)
+            return 0;
+        if (student.getGPA() >= gpaLowerLimit)
+            return 5;
+        return 3;
+    }
+
+    /**adds level one courses that are not completed */
     private void addLevel1Courses(){
         ArrayList<Course> l1 = csSpecialCoursesL1();
         String currSem = student.getCurrentSemester();
@@ -57,10 +63,7 @@ public class CSAdvising implements AcademicAdvising {
         }
     }
     
-    /**
-     * Checks if course was preiously completed
-     * This data would have been obtained from GUI choices 
-     */
+    /**returns true if the student completed the prereqisite */
     public boolean isCompleted(Course course){
         boolean completed = false; 
         for (String c: student.getCoursesCompleted()){
@@ -71,14 +74,7 @@ public class CSAdvising implements AcademicAdvising {
 
     }
 
-    public int getNumberOfCoursesBasedOnGPA(Student student) {
-        if (student.getGPA()>4.3 || student.getGPA()<0)
-            return 0;
-        if (student.getGPA() >= gpaLowerLimit)
-            return 5;
-        return 3;
-    }
-
+    /** returns a String that contains course recommendations */
     public String formattedRecommendations(){
         String formattedList = "Hello Computer Science (Special) student.";
         formattedList += "\nHere are your recommended courses for Semester " + student.getCurrentSemester() + "\n";
@@ -88,11 +84,13 @@ public class CSAdvising implements AcademicAdvising {
         return formattedList;
     }
  
+    /**returns an ArrayList containing the courses offered for Computer Science (Special) level 2 */
     private static ArrayList<Course> csSpecialCoursesL2(){
         ArrayList<Course> csLevel2 = new CourseService().getCS();
         return csLevel2;
     }
 
+    /**returns an ArrayList containing the courses offered for Computer Science (Special) level 1 */
     private static ArrayList<Course> csSpecialCoursesL1(){
         ArrayList<Course> csLevel1 = new CourseService().getLevel1();
         return csLevel1;

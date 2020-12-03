@@ -1,5 +1,5 @@
 package advising;
-public class Course {
+ public class Course {
 
     private String courseCode;
     private String courseTitle;
